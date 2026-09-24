@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Portfolio Website
 
-## Getting Started
+An art-directed, editorial personal portfolio website for a software developer. Built with Next.js (App Router), TypeScript (strict mode), Tailwind CSS, and Zod-validated content models.
 
-First, run the development server:
+## 🛠 Tech Stack
+
+- **Framework:** Next.js 16 (React 19, App Router, React Server Components)
+- **Language:** TypeScript (Strict mode enabled, zero `any`)
+- **Styling:** Tailwind CSS (v4) with CSS variable design tokens
+- **Primitives:** Custom CVA components & Radix UI primitives
+- **Animation:** Motion (`motion`)
+- **Icons:** Lucide React (`lucide-react`)
+- **Themes:** `next-themes` (Dark "Ink" & Light "Paper")
+- **Validation:** Zod (`zod`) schemas executed at build time
+- **Package Manager:** `pnpm` (v12)
+- **Quality:** ESLint, Prettier, TypeScript compiler, GitHub Actions CI
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js LTS (v20+ or v22+)
+- `pnpm` (`npm install -g pnpm`)
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/mrconsistent22/Portfolio.git
+cd Portfolio
+
+# Install dependencies
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧪 Quality Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command | Purpose |
+|---|---|
+| `pnpm dev` | Starts Next.js development server with hot reloading |
+| `pnpm build` | Compiles production bundle and executes build-time Zod content validation |
+| `pnpm typecheck` | Runs `tsc --noEmit` across all `.ts` and `.tsx` files in strict mode |
+| `pnpm lint` | Runs ESLint |
+| `pnpm format` | Formats all code files with Prettier and Tailwind plugin |
+| `pnpm format:check` | Verifies code formatting rules |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📂 Content Management
 
-## Deploy on Vercel
+All personal and professional information is decoupled from UI components and stored in typed, Zod-validated files inside `/content`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `content/site.ts`: Name, headline, bio, contact details, social links, navigation
+- `content/highlights.ts`: Key quantified proof points and metrics
+- `content/projects.ts`: Project case studies, tags, repo/live links, and outcomes
+- `content/skills.ts`: Typographic skill categories and technology listings
+- `content/experience.ts`: Professional work experience timeline
+- `content/education.ts`: Degrees, institutions, and academic coursework
+- `content/certifications.ts`: Verified credentials, issuers, and verification links
+- `content/achievements.ts`: Awards, competition wins, and recognitions
+- `content/coding-profiles.ts`: Platform handles and statistics (LeetCode, Codeforces, GitHub, etc.)
+- `content/testimonials.ts`: Recommendations and quotes (auto-hides when empty)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Build Safety:** If any field in `/content` violates its schema in `lib/schemas.ts`, `pnpm build` immediately fails with a descriptive validation error pointing to the exact file and field.

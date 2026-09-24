@@ -1,0 +1,58 @@
+import type { Certification } from "@/lib/schemas";
+
+export const certificationsData: Certification[] = [
+  {
+    title: "AWS Certified Solutions Architect – Associate",
+    issuer: "Amazon Web Services",
+    issueDate: "2024",
+    credentialId: "AWS-SAA-{{ID}}",
+    verifyUrl: "https://aws.amazon.com/verification",
+    category: "Cloud",
+    featured: true,
+  },
+  {
+    title: "Certified Kubernetes Administrator (CKA)",
+    issuer: "Cloud Native Computing Foundation",
+    issueDate: "2024",
+    credentialId: "CKA-{{ID}}",
+    verifyUrl: "https://www.cncf.io/certification/cka/",
+    category: "DevOps",
+    featured: true,
+  },
+  {
+    title: "Meta Front-End Developer Professional Certificate",
+    issuer: "Meta",
+    issueDate: "2023",
+    credentialId: "META-FE-{{ID}}",
+    verifyUrl: "https://coursera.org/verify/{{ID}}",
+    category: "Frontend",
+    featured: true,
+  },
+  {
+    title: "MongoDB Certified Developer Associate",
+    issuer: "MongoDB Inc.",
+    issueDate: "2023",
+    credentialId: "MDB-DEV-{{ID}}",
+    verifyUrl: "https://learn.mongodb.com/verify",
+    category: "Database",
+    featured: false,
+  },
+  {
+    title: "Professional Scrum Master I (PSM I)",
+    issuer: "Scrum.org",
+    issueDate: "2023",
+    credentialId: "PSM-{{ID}}",
+    verifyUrl: "https://scrum.org/certificates/{{ID}}",
+    category: "Agile",
+    featured: false,
+  },
+  {
+    title: "Deep Learning Specialization",
+    issuer: "DeepLearning.AI",
+    issueDate: "2022",
+    credentialId: "DLAI-{{ID}}",
+    verifyUrl: "https://coursera.org/verify/{{ID}}",
+    category: "AI",
+    featured: false,
+  },
+];
